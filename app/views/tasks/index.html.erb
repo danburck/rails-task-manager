@@ -4,7 +4,15 @@
   <li>
     <input type="checkbox" <%= 'checked' if task.completed %> readonly />
     <%= link_to task.title, task_path(task)  %>
+
+    <%= link_to '🗑',
+      task_path(task),
+      method: :delete,
+      data: { confirm: "Delete #{task.title}" } %>
   </li>
 <% end %>
 </ul>
+<hr>
+<%= link_to '➕ Add a new task', new_path %>
+
 
